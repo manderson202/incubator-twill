@@ -124,3 +124,30 @@ controller.stop().get();
 ```
 
 This will shut down the application master and all the containers.
+
+### Hello World
+
+To see Twill in action, you can run the Hello World application located in the twill-examples module.
+
+#### Prerequisites
+
+* Single Node or Cluster installation of Hadoop with YARN (Hadoop >= 2.2.0) set-up and running.
+* Single Node or Cluster installation of ZooKeeper set-up and running.
+* Build of Twill Library Code (minimum, build of twill-examples module)
+
+#### Running the Sample
+
+You can run the application from any node of the Hadoop cluster using the below command:
+
+```sh
+$ CP=twill-examples-yarn-0.5.0-incubating-SNAPSHOT.jar:`hadoop classpath`; java -cp $CP org.apache.twill.example.yarn.HelloWorld zookeeper_host:port
+```
+
+If successful, you should see logs output to the terminal with details of the running application.  Once the application
+is finished running, check the YARN logs and you should see output like the following:
+
+```
+14:49:45.944 [TwillContainerService] INFO  o.a.twill.example.yarn.HelloWorld - Hello World. My first distributed application.
+```
+
+Congratulations!  You have run your first Twill application.
